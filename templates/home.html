@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LinkedIn Scraper AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: #ffffff;
+            color: #0f172a;
+        }
+
+        header {
+            background: white;
+            padding: 20px 60px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: 800;
+            color: #2563eb;
+        }
+
+        .nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #475569;
+            font-size: 14px;
+        }
+
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, #eff6ff, #ffffff);
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #475569;
+            margin: 20px 0 40px;
+        }
+
+        .hero-form {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .hero-form input {
+            flex: 1;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #cbd5f5;
+            font-size: 15px;
+        }
+
+        .hero-form button {
+            padding: 16px 26px;
+            border-radius: 10px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .features {
+            padding: 80px 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .feature {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 16px;
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .feature h3 {
+            margin-top: 0;
+            color: #2563eb;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="brand">DS Scraper AI</div>
+    <div class="nav">
+
+</header>
+
+<section class="hero">
+    <h1>Turn LinkedIn Comments into Sales Leads Automatically</h1>
+    <p>No extensions. No manual work. Just paste the link.</p>
+
+    <form class="hero-form" action="/scrape" method="post">
+        <input type="text" name="url" placeholder="https://www.linkedin.com/posts/..." required>
+        <button type="submit">Start Free</button>
+
+    </form>
+</section>
+
+<section class="features">
+    <div class="feature">
+        <h3>AI Powered</h3>
+        <p>Our engine automatically extracts and cleans lead data.</p>
+    </div>
+    <div class="feature">
+        <h3>Google Sheets</h3>
+        <p>Instant sync to your sheet for team usage.</p>
+    </div>
+    <div class="feature">
+        <h3>Fast & Secure</h3>
+        <p>No data stored. Everything processed live.</p>
+    </div>
+</section>
+
+</body>
+</html>

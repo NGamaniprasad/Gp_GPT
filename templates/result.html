@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            background: white;
+            padding: 35px;
+            width: 380px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+        }
+
+        .sheet {
+            background: #28a745;
+        }
+
+        .sheet:hover {
+            background: #218838;
+        }
+
+        .back {
+            background: #007bff;
+        }
+
+        .back:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>{{ message }}</h2>
+
+    <a class="btn sheet" href="{{ sheet_url }}" target="_blank">
+        Open Google Sheet
+    </a>
+
+    <a class="btn back" href="/home">
+        Go Back
+    </a>
+</div>
+
+</body>
+</html>

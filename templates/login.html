@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a66c2, #6a11cb, #2575fc);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            backdrop-filter: blur(12px);
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 45px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+            color: white;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        /* 🔴 ERROR MESSAGE */
+        .error {
+            background: rgba(255,0,0,0.25);
+            border: 1px solid rgba(255,0,0,0.6);
+            color: #ffe5e5;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 20px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus {
+            box-shadow: 0 0 0 2px #00c6ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .features {
+            margin-top: 25px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .features div {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: white;
+            font-size: 13px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        footer span {
+            color: #00c6ff;
+            font-weight: bold;
+        }
+
+        /* COOKIE BAR */
+        .cookie-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 14px 25px;
+            display: none;
+            z-index: 9999;
+            font-size: 14px;
+        }
+
+        .cookie-content {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cookie-actions button {
+            width: auto;
+            padding: 8px 18px;
+            margin-left: 10px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="login-card">
+        <div class="logo">DS SCRAPER</div>
+        <div class="subtitle">Secure access to your leads</div>
+
+        <!-- ✅ ERROR MESSAGE FROM FASTAPI -->
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form action="/login" method="post">
+            <input type="password" name="password" placeholder="Enter password" required>
+            <button type="submit">Unlock Dashboard</button>
+        </form>
+
+        <div class="features">
+            <div>✔ Real-time LinkedIn scraping</div>
+            <div>✔ Auto-save to Google Sheets</div>
+            <div>✔ No manual copy-paste</div>
+            <div>✔ Built for Direct Sales</div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 <span>Direct Sales AI Platform</span> — Built by Gamani Prasad
+</footer>
+
+<!-- COOKIE BAR -->
+<div class="cookie-bar" id="cookieBar">
+    <div class="cookie-content">
+        <div>We use cookies to keep you logged in and improve experience.</div>
+        <div class="cookie-actions">
+            <button onclick="acceptCookies()">Accept</button>
+            <button onclick="rejectCookies()">Reject</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function acceptCookies() {
+    localStorage.setItem("cookieConsent", "accepted");
+    document.getElementById("cookieBar").style.display = "none";
+}
+
+function rejectCookies() {
+    localStorage.setItem("cookieConsent", "rejected");
+    document.getElementById("cookieBar").style.display = "none";
+}
+
+window.onload = function() {
+    if (!localStorage.getItem("cookieConsent")) {
+        document.getElementById("cookieBar").style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
