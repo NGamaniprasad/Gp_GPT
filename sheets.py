@@ -1,7 +1,7 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-SHEET_ID = "18bt8r5DZzFIz8UiETCrE1QpcUWLTvN2MC3jlsdJ-So8"
+SHEET_ID = ""
 
 def save_to_sheet(row):
     scope = [
