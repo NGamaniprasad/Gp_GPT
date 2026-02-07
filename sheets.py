@@ -67,7 +67,7 @@ Add Key → Create new key → JSON
 
 It will download a file to your computer.
 
-That file is the key.  edir direct-sale.json 
+That file is the key.  edit as  direct-sale.json 
 """
 def save_to_sheet(row):
     scope = [
