@@ -76,7 +76,7 @@ def save_to_sheet(row):
     ]
 
     creds = ServiceAccountCredentials.from_json_keyfile_name(
-        "direct-sale-485906-ba6e8854dba4.json",
+        "direct-sale.json",
         scope
     )
 
